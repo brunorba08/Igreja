@@ -1,12 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Igreja</title>
+    <title>Igreja São Francisco de Esperança</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body>
-    <p style="text-align: center">projeto em desenvolvimento 3</p>
-    <p>testanado aqui</p>
+    <!-- Topo (menu) carregado dinamicamente -->
+    <div id="header-placeholder"></div>
+
+    <div class="hero-container">
+      <img src="img/igreja.jpg" alt="Imagem da Igreja" class="banner" />
+      <div class="hero-overlay">
+        <div class="hero-left">
+          <h2>Uma igreja que acolhe, ama e transforma.</h2>
+        </div>
+        <div class="hero-right">
+          <blockquote>
+            "Vinde a mim, todos os que estais cansados e oprimidos, e eu vos
+            aliviarei." <br />
+            <cite>Mateus 11:28</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <section class="versiculo">
+      <h2><i class="fas fa-book-open"></i> Versículo do Dia</h2>
+      <p id="versiculo-texto"></p>
+    </section>
+
+    <section class="chamadas">
+      <div class="cta">
+        <h3>Participe de nossos cultos</h3>
+        <p>Todos os domingos às 19h e quartas às 20h</p>
+        <a href="agenda.html" class="btn">Ver Agenda</a>
+      </div>
+      <div class="cta">
+        <h3>Conheça nossa história</h3>
+        <p>Desde 1990, espalhando fé e esperança</p>
+        <a href="sobre.html" class="btn">Saiba Mais</a>
+      </div>
+    </section>
+
+    <!-- Nova seção com imagem e informações -->
+    <section class="informacoes">
+      <div class="info-container">
+        <img src="img/igreja2.jpg" alt="Culto na Igreja" class="info-img" />
+        <div class="info-text">
+          <h3>Junte-se a nós em nossos cultos</h3>
+          <p>
+            Nossa igreja oferece cultos e encontros para todos os públicos.
+            Junte-se a nós e experimente a presença de Deus em nossa comunidade!
+          </p>
+          <a href="agenda.html" class="btn">Veja a Agenda Completa</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rodapé carregado dinamicamente -->
+    <div id="footer-placeholder"></div>
+
+    <script src="versiculo.js"></script>
+    <script>
+      // Carrega o header e footer dinamicamente
+      document.getElementById('header-placeholder').innerHTML =
+        '<object type="text/html" data="header.html" width="100%" height="auto"></object>'
+      document.getElementById('footer-placeholder').innerHTML =
+        '<object type="text/html" data="footer.html" width="100%" height="auto"></object>'
+    </script>
   </body>
 </html>

@@ -1,0 +1,62 @@
+1. Site de Igreja (Frontend Simples)
+📱 Telas/Páginas:
+Home
+
+Sobre nós
+
+Agenda
+
+Galeria
+
+Contato
+
+✅ O que deve ter em cada uma:
+1. Home
+Banner com imagem da igreja
+
+Versículo do dia (pode ser aleatório via JS)
+
+Botões ou links para outras páginas
+
+2. Sobre nós
+Missão
+
+Visão
+
+Valores
+
+Breve histórico da igreja
+
+3. Agenda
+Lista de eventos (cultos, vigílias, encontros)
+
+Datas, horários e descrição
+
+4. Galeria
+Fotos dos eventos e vídeos (se quiser embed do YouTube)
+
+Dividido por categorias (Ex: Batismos, Cultos Jovens...)
+
+5. Contato
+Mapa do Google Maps integrado
+
+WhatsApp flutuante
+
+Formulário de contato (mesmo que não envie de fato, só visual)
+
+
+
+
+
+
+
+
+1. Site de Igreja (Frontend Simples)
+🎨 Paleta:
+60%: Azul claro #87CEEB (cor base do fundo)
+
+30%: Branco #FFFFFF (cards, textos e blocos de conteúdo)
+
+10%: Dourado #FFD700 (detalhes como ícones, títulos e versículo do dia)
+
+💡 Dica de estilo: mantenha os elementos dourados bem sutis (linha decorativa, bordas ou sublinhados nos títulos).
