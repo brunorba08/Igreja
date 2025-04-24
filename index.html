@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Igreja São Francisco de Esperança</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="img/icone.png" />
+
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
@@ -67,16 +69,38 @@
       </div>
     </section>
 
+    <section class="localizacao">
+      <h2><i class="fas fa-map-marker-alt"></i> Nossa Localização</h2>
+      <p class="descricao-localizacao">
+        Estamos localizados em um ponto de fácil acesso em Barueri, onde você
+        será sempre bem-vindo para participar das nossas missas e atividades.
+        Venha nos visitar e sentir a presença de Deus em um ambiente de fé, amor
+        e acolhimento.
+      </p>
+      <br />
+      <div class="mapa-container">
+        <a
+          href="https://waze.com/ul?ll=-23.507943,-46.875633&navigate=yes"
+          target="_blank"
+          title="Abrir no Waze"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.765111217168!2d-46.87820162372386!3d-23.507941762005063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf01f6c0dc6db3%3A0x5b1c5fa5370cf8dc!2sAv.%20Brg.%20Manoel%20Rodrigues%20Jord%C3%A3o%2C%20761%20-%20Jardim%20Silveira%2C%20Barueri%20-%20SP%2C%2006433-010!5e0!3m2!1spt-BR!2sbr!4v1713812190309!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="300"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </a>
+      </div>
+    </section>
+
     <!-- Rodapé carregado dinamicamente -->
     <div id="footer-placeholder"></div>
 
     <script src="versiculo.js"></script>
-    <script>
-      // Carrega o header e footer dinamicamente
-      document.getElementById('header-placeholder').innerHTML =
-        '<object type="text/html" data="header.html" width="100%" height="auto"></object>'
-      document.getElementById('footer-placeholder').innerHTML =
-        '<object type="text/html" data="footer.html" width="100%" height="auto"></object>'
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -7,11 +7,18 @@
 html,
 body {
   overflow-x: hidden;
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #87ceeb;
   color: #000;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .topo {
@@ -161,7 +168,6 @@ nav a:hover {
 
 footer {
   background-color: #ffffff;
-  padding: 1rem;
   text-align: center;
   margin-top: 2rem;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
@@ -248,4 +254,29 @@ footer {
 
 .info-text .btn:hover {
   background-color: #e6c200;
+}
+
+.localizacao {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.localizacao h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.mapa-container {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 4px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mapa-container a {
+  display: block;
 }
