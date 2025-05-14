@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="img/icone.png" />
-
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
@@ -14,11 +13,177 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-
     <title>Igreja São Francisco de Esperança</title>
+    <style>
+      .calendar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .calendar-controls {
+        display: flex;
+        justify-content: space-between;
+        width: 250px;
+        margin-bottom: 20px;
+      }
+
+      .calendar-controls button {
+        padding: 5px 10px;
+        font-size: 1.2em;
+        background-color: #5c6bc0;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .calendar-controls button:hover {
+        background-color: #3949ab;
+      }
+
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+        max-width: 350px;
+        text-align: center;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+      }
+
+      .month-year {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.3em;
+        color: #333;
+        font-weight: bold;
+      }
+
+      #calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+      }
+
+      .header {
+        font-weight: bold;
+        padding: 10px 0;
+        background-color: #e0e0e0;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      .day,
+      .header {
+        text-align: center;
+        padding: 5px;
+        border: 1px solid #ddd;
+        min-height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 12px;
+        background-color: #fff;
+        border-radius: 5px;
+      }
+
+      .day-number {
+        font-size: 16px;
+        color: #000; /* amarelo para o número do dia */
+        font-weight: bold;
+      }
+
+      .day small {
+        font-size: 10px;
+        color: #555;
+        margin-top: auto;
+      }
+
+      .holiday {
+        background-color: #ffe4e1;
+        border: 2px solid red;
+      }
+
+      .holiday .day-number {
+        color: red; /* um tom alaranjado para destaque */
+      }
+
+      .holiday small {
+        font-size: 10px;
+        color: #d32f2f;
+        margin-top: auto;
+      }
+
+      .feriado {
+        background-color: yellow;
+        color: black;
+        font-weight: bold;
+      }
+
+      .feriado span {
+        font-size: 10px;
+        display: block;
+        margin-top: 5px;
+      }
+    </style>
   </head>
   <body>
     <div id="header-placeholder"></div>
+
+    <section class="agenda">
+      <div class="container">
+        <h2>Agenda de Missas e Celebrações</h2>
+        <p>
+          Nossa igreja realiza missas e celebrações regularmente para acolher a
+          comunidade, oferecer momentos de oração e reforçar a fé. Confira
+          abaixo os dias fixos de nossos encontros:
+        </p>
+
+        <div class="agenda-grid">
+          <div class="agenda-card">
+            <h3>Missas</h3>
+            <ul>
+              <li><strong>Quartas-feiras:</strong> 19h00</li>
+              <li><strong>Domingos:</strong> 08h00 e 18h00</li>
+              <li>
+                <strong>Dias Santos:</strong> Horários especiais anunciados
+              </li>
+            </ul>
+          </div>
+
+          <div class="agenda-image">
+            <img src="img/igreja.jpg" alt="Imagem da Igreja" />
+          </div>
+
+          <div class="agenda-card">
+            <h3>Celebrações</h3>
+            <ul>
+              <li><strong>Quintas-feiras:</strong> 19h30</li>
+              <li><strong>Sábados:</strong> 18h00</li>
+            </ul>
+          </div>
+        </div>
+        <p>
+          Em dias santos, acompanhe nossos canais oficiais ou entre em contato
+          com a secretaria para saber os horários especiais.
+        </p>
+      </div>
+
+      <div class="calendar-container">
+        <div class="calendar-controls">
+          <button id="prevMonth">‹ Anterior</button>
+          <button id="nextMonth">Próximo ›</button>
+        </div>
+        <div class="month-year" id="monthYear"></div>
+        <div class="calendar" id="calendar"></div>
+      </div>
+    </section>
+
     <div id="footer-placeholder"></div>
 
     <script src="script.js"></script>
