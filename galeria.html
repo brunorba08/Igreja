@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Galeria de imagens e ensinamentos da Igreja São Francisco de Esperança."
+    />
     <link rel="icon" type="image/png" href="img/icone.png" />
 
     <script
@@ -20,25 +24,38 @@
     <link rel="stylesheet" href="style.css" />
 
     <style>
-      body {
-        font-family: 'Merriweather', serif;
-        margin: 0;
-        padding: 0;
-        background-color: #fdfdfd;
-        color: #333;
+      .galeria-header {
+        background: linear-gradient(135deg, var(--primary-color) 0%, #001640 100%);
+        color: white;
+        padding: 4rem 2rem 2rem;
+        text-align: center;
+      }
+
+      .galeria-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--secondary-color);
+      }
+
+      .galeria-header p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
       }
 
       .section {
         display: flex;
         flex-wrap: wrap;
-        padding: 40px 10%;
+        padding: 4rem 10%;
         align-items: center;
-        gap: 30px;
+        gap: 3rem;
+        background-color: var(--bg-white);
       }
 
       .section:nth-child(even) {
         flex-direction: row-reverse;
-        background-color: #f5f5f5;
+        background-color: var(--bg-light);
       }
 
       .text {
@@ -47,14 +64,21 @@
       }
 
       .text h2 {
-        font-size: 2em;
-        margin-bottom: 15px;
-        color: #5a3e85;
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+
+      .text h2 i {
+        color: var(--secondary-color);
+        margin-right: 0.5rem;
       }
 
       .text p {
-        font-size: 1.1em;
-        line-height: 1.6em;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: var(--text-light);
       }
 
       .image {
@@ -64,23 +88,66 @@
 
       .image img {
         width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+      }
+
+      .image img:hover {
+        transform: scale(1.03);
+        box-shadow: var(--shadow-lg);
+      }
+
+      @media (max-width: 768px) {
+        .galeria-header h1 {
+          font-size: 2rem;
+        }
+
+        .galeria-header p {
+          font-size: 1rem;
+        }
+
+        .section {
+          padding: 3rem 5%;
+          gap: 2rem;
+        }
+
+        .section:nth-child(even) {
+          flex-direction: column;
+        }
+
+        .text h2 {
+          font-size: 1.6rem;
+        }
+
+        .text p {
+          font-size: 1rem;
+        }
       }
     </style>
 
-    <title>Igreja São Francisco de Esperança</title>
+    <title>Galeria - Igreja São Francisco de Esperança</title>
   </head>
   <body>
     <div id="header-placeholder"></div>
 
+    <div class="galeria-header">
+      <h1><i class="fas fa-images"></i> Galeria de Fé e Ensinamentos</h1>
+      <p>
+        Conheça os sacramentos e ensinamentos da Igreja Católica através de
+        imagens e reflexões que fortalecem nossa fé e nos aproximam de Deus.
+      </p>
+    </div>
+
     <!-- Seções informativas -->
     <div class="section">
       <div class="text">
-        <h2>O que é a Eucaristia?</h2>
+        <h2><i class="fas fa-bread-slice"></i> O que é a Eucaristia?</h2>
         <p>
           A Eucaristia é o sacramento do Corpo e Sangue de Cristo. Nela, Jesus
-          se faz presente e nos alimenta com sua vida.
+          se faz presente e nos alimenta com sua vida. É o centro da vida
+          cristã, onde celebramos o sacrifício de amor de Jesus por toda a
+          humanidade.
         </p>
       </div>
       <div class="image">
@@ -90,10 +157,11 @@
 
     <div class="section">
       <div class="text">
-        <h2>O significado do Batismo</h2>
+        <h2><i class="fas fa-water"></i> O significado do Batismo</h2>
         <p>
           O Batismo é a porta da vida cristã. É através dele que somos libertos
-          do pecado original e nos tornamos filhos de Deus.
+          do pecado original e nos tornamos filhos de Deus. O batismo marca o
+          início de nossa jornada de fé e nos integra à comunidade cristã.
         </p>
       </div>
       <div class="image">
@@ -103,10 +171,12 @@
 
     <div class="section">
       <div class="text">
-        <h2>Maria, Mãe de Jesus</h2>
+        <h2><i class="fas fa-heart"></i> Maria, Mãe de Jesus</h2>
         <p>
           Maria é o maior exemplo de fé e obediência a Deus. Ela é nossa
-          intercessora e sempre nos leva a seu Filho.
+          intercessora e sempre nos leva a seu Filho. Sua vida de humildade e
+          amor nos inspira a seguir os passos de Jesus com confiança e
+          esperança.
         </p>
       </div>
       <div class="image">
@@ -116,10 +186,12 @@
 
     <div class="section">
       <div class="text">
-        <h2>O valor da Confissão</h2>
+        <h2><i class="fas fa-hands-praying"></i> O valor da Confissão</h2>
         <p>
           Pela confissão, recebemos o perdão de Deus e a paz interior. Um
-          reencontro sincero com a misericórdia divina.
+          reencontro sincero com a misericórdia divina. É um momento de
+          renovação espiritual onde podemos nos reconciliar com Deus e com nós
+          mesmos.
         </p>
       </div>
       <div class="image">
@@ -129,10 +201,11 @@
 
     <div class="section">
       <div class="text">
-        <h2>O Sacramento do Matrimônio</h2>
+        <h2><i class="fas fa-ring"></i> O Sacramento do Matrimônio</h2>
         <p>
           O casamento é uma aliança sagrada entre homem e mulher. Nele, Deus se
-          faz presente no amor do casal.
+          faz presente no amor do casal. É um compromisso de amor, fidelidade e
+          doação mútua que reflete o amor de Cristo pela Igreja.
         </p>
       </div>
       <div class="image">
@@ -142,10 +215,11 @@
 
     <div class="section">
       <div class="text">
-        <h2>A importância da Oração</h2>
+        <h2><i class="fas fa-praying-hands"></i> A importância da Oração</h2>
         <p>
           A oração é um diálogo com Deus. É através dela que fortalecemos nossa
-          fé e encontramos consolo nas dificuldades.
+          fé e encontramos consolo nas dificuldades. Na oração, abrimos nosso
+          coração a Deus e experimentamos sua presença amorosa em nossas vidas.
         </p>
       </div>
       <div class="image">
@@ -155,10 +229,12 @@
 
     <div class="section">
       <div class="text">
-        <h2>A Missa: Encontro com Cristo</h2>
+        <h2><i class="fas fa-church"></i> A Missa: Encontro com Cristo</h2>
         <p>
           Participar da Missa é viver a comunhão com Jesus e com a comunidade. É
-          renovar nossa fé semanalmente.
+          renovar nossa fé semanalmente. Na celebração eucarística, nos unimos
+          como corpo de Cristo para louvar, agradecer e receber as bênçãos
+          divinas.
         </p>
       </div>
       <div class="image">
@@ -168,10 +244,12 @@
 
     <div class="section">
       <div class="text">
-        <h2>A Crisma e o Espírito Santo</h2>
+        <h2><i class="fas fa-dove"></i> A Crisma e o Espírito Santo</h2>
         <p>
           A Crisma fortalece os dons do Espírito Santo em nós. É um chamado à
-          maturidade na fé cristã.
+          maturidade na fé cristã. Através deste sacramento, somos confirmados
+          como discípulos de Cristo e recebemos a força para testemunhar nossa
+          fé.
         </p>
       </div>
       <div class="image">
@@ -181,10 +259,12 @@
 
     <div class="section">
       <div class="text">
-        <h2>O significado da Cruz</h2>
+        <h2><i class="fas fa-cross"></i> O significado da Cruz</h2>
         <p>
           A cruz é sinal de amor, entrega e salvação. Nela, Jesus nos mostrou o
-          caminho do perdão e da vida eterna.
+          caminho do perdão e da vida eterna. A cruz nos lembra do sacrifício
+          supremo de Cristo e nos convida a carregar nossa própria cruz com fé
+          e esperança.
         </p>
       </div>
       <div class="image">
@@ -194,10 +274,12 @@
 
     <div class="section">
       <div class="text">
-        <h2>Os Santos na Igreja</h2>
+        <h2><i class="fas fa-star"></i> Os Santos na Igreja</h2>
         <p>
           Os santos são modelos de vida cristã. Suas histórias nos inspiram a
-          viver com fé, coragem e amor ao próximo.
+          viver com fé, coragem e amor ao próximo. Eles nos mostram que é
+          possível viver uma vida santa e dedicada a Deus, independentemente de
+          nossas circunstâncias.
         </p>
       </div>
       <div class="image">
@@ -210,3 +292,4 @@
     <script src="script.js"></script>
   </body>
 </html>
+

@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Entre em contato com a Igreja São Francisco de Esperança em Barueri, SP. Tire suas dúvidas, solicite sacramentos e conheça nossa comunidade."
+    />
+    <meta name="keywords" content="contato, igreja, São Francisco, Barueri, católica, paróquia" />
     <link rel="icon" type="image/png" href="img/icone.png" />
 
     <script
@@ -15,13 +20,401 @@
     />
     <link rel="stylesheet" href="style.css" />
 
-    <title>Igreja São Francisco de Esperança</title>
+    <style>
+      /* Estilos específicos da página de contato */
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .contato-wrapper {
+        flex: 1 0 auto;
+        width: 100%;
+      }
+
+      .contato-section {
+        padding: 5rem 2rem 8rem;
+        background: linear-gradient(135deg, #f4f0fa 0%, #e8e4f3 100%);
+        min-height: calc(100vh - 300px);
+      }
+
+      .contato-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contato-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        animation: fadeInUp 0.8s ease;
+      }
+
+      .contato-header h1 {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .contato-header h1 i {
+        color: var(--secondary-color);
+        margin-right: 0.8rem;
+      }
+
+      .contato-header p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      .contato-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+
+      .contato-info-card {
+        background: linear-gradient(135deg, #ffffff, #fafafa);
+        padding: 2.5rem;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        border-top: 5px solid var(--secondary-color);
+        animation: fadeInUp 1s ease;
+      }
+
+      .contato-info-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .contato-info-card h3 {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      .contato-info-card h3 i {
+        color: var(--secondary-color);
+        margin-right: 0.8rem;
+      }
+
+      .contato-info-card p {
+        font-size: 1.05rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 0.8rem;
+      }
+
+      .contato-info-card a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition-fast);
+      }
+
+      .contato-info-card a:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+      }
+
+      .horarios-missa {
+        background: linear-gradient(135deg, #fff8e1, #fff3cd);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        margin-top: 1.5rem;
+        border-left: 5px solid var(--accent-color);
+      }
+
+      .horarios-missa p {
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+        font-weight: 600;
+      }
+
+      .form-section {
+        background: linear-gradient(135deg, #ffffff, #fafafa);
+        padding: 3rem;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-lg);
+        animation: fadeInUp 1.2s ease;
+      }
+
+      .form-section h2 {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      .form-section h2 i {
+        color: var(--secondary-color);
+        margin-right: 0.8rem;
+      }
+
+      .form-group {
+        margin-bottom: 2rem;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 1.05rem;
+        color: var(--text-dark);
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: var(--border-radius);
+        font-family: 'Inter', sans-serif;
+        transition: var(--transition);
+        background: #ffffff;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+      }
+
+      .form-group textarea {
+        min-height: 180px;
+        resize: vertical;
+      }
+
+      .form-submit {
+        text-align: center;
+        margin-top: 2.5rem;
+      }
+
+      .btn-submit {
+        background: linear-gradient(135deg, var(--primary-color), #003d8f);
+        color: white;
+        padding: 1.2rem 3.5rem;
+        font-size: 1.15rem;
+        font-weight: 700;
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-submit:hover {
+        background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        color: var(--text-dark);
+        transform: scale(1.08);
+        box-shadow: var(--shadow-xl);
+      }
+
+      footer {
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 768px) {
+        .contato-section {
+          padding: 3rem 1.5rem 6rem;
+        }
+
+        .contato-header h1 {
+          font-size: 2.2rem;
+        }
+
+        .contato-header p {
+          font-size: 1.05rem;
+        }
+
+        .contato-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .form-section {
+          padding: 2rem 1.5rem;
+        }
+
+        .form-section h2 {
+          font-size: 1.8rem;
+        }
+
+        .btn-submit {
+          padding: 1rem 2.5rem;
+          font-size: 1.05rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .contato-section {
+          padding: 2rem 1rem 5rem;
+        }
+
+        .contato-header h1 {
+          font-size: 1.8rem;
+        }
+
+        .contato-info-card {
+          padding: 2rem;
+        }
+
+        .form-section {
+          padding: 1.5rem 1rem;
+        }
+      }
+    </style>
+
+    <title>Contato - Igreja São Francisco de Esperança</title>
   </head>
   <body>
     <div id="header-placeholder"></div>
-    <br />
+
+    <div class="contato-wrapper">
+      <section class="contato-section">
+        <div class="contato-container">
+          <div class="contato-header">
+            <h1><i class="fas fa-envelope"></i> Entre em Contato</h1>
+            <p>
+              Estamos aqui para atendê-lo. Entre em contato conosco para tirar
+              dúvidas, solicitar sacramentos ou conhecer melhor nossa
+              comunidade.
+            </p>
+          </div>
+
+          <div class="contato-content">
+            <!-- Endereço -->
+            <div class="contato-info-card">
+              <h3><i class="fas fa-map-marker-alt"></i> Endereço</h3>
+              <p>Av. Brg. Manoel Rodrigues Jordão, 761</p>
+              <p>Jardim Silveira, Barueri - SP</p>
+              <p>CEP: 06433-010</p>
+              <p style="margin-top: 1.5rem;">
+                <a href="https://www.google.com/maps/search/?api=1&query=Av.+Brg.+Manoel+Rodrigues+Jordão,+761+Jardim+Silveira,+Barueri+-+SP" target="_blank">
+                  <i class="fas fa-map"></i> Ver no mapa
+                </a>
+              </p>
+            </div>
+
+            <!-- Telefone -->
+            <div class="contato-info-card">
+              <h3><i class="fas fa-phone"></i> Telefone</h3>
+              <p>
+                <a href="tel:+551141999999">(11) 4199-XXXX</a>
+              </p>
+              <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-gray);">
+                Atendimento: Segunda a Sexta, 9h às 17h
+              </p>
+            </div>
+
+            <!-- E-mail -->
+            <div class="contato-info-card">
+              <h3><i class="fas fa-envelope"></i> E-mail</h3>
+              <p>
+                <a href="mailto:contato@igrejasaofrancisco.org">
+                  contato@igrejasaofrancisco.org
+                </a>
+              </p>
+              <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-gray);">
+                Responderemos em até 48 horas
+              </p>
+
+              <div class="horarios-missa">
+                <p><strong>Horários de Missa:</strong></p>
+                <p><i class="far fa-calendar"></i> Quartas-feiras: 19h00</p>
+                <p><i class="far fa-calendar"></i> Domingos: 08h00 e 18h00</p>
+                <p><i class="far fa-calendar"></i> Dias Santos: Horários especiais</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulário de Contato -->
+          <div class="form-section">
+            <h2><i class="fas fa-paper-plane"></i> Envie uma Mensagem</h2>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="nome">Nome Completo *</label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  placeholder="Seu nome"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="seu@email.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input
+                  type="tel"
+                  id="telefone"
+                  name="telefone"
+                  placeholder="(11) 99999-9999"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="assunto">Assunto *</label>
+                <input
+                  type="text"
+                  id="assunto"
+                  name="assunto"
+                  placeholder="Sobre o que deseja falar?"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="mensagem">Mensagem *</label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  placeholder="Escreva sua mensagem aqui..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-submit">
+                <button type="submit" class="btn-submit">
+                  <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <div id="footer-placeholder"></div>
 
     <script src="script.js"></script>
+    <script>
+      // Manipulação do formulário
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Obrigado por entrar em contato! Responderemos em breve.');
+        this.reset();
+      });
+    </script>
   </body>
 </html>

@@ -1,3 +1,4 @@
+// Carregamento do Header e Footer
 fetch('header.html')
   .then((response) => response.text())
   .then((data) => {
@@ -9,6 +10,40 @@ fetch('footer.html')
   .then((data) => {
     document.getElementById('footer-placeholder').innerHTML = data
   })
+
+// Botão Voltar ao Topo
+window.addEventListener('scroll', function() {
+  const backToTopButton = document.getElementById('backToTop');
+  if (backToTopButton) {
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add('show');
+    } else {
+      backToTopButton.classList.remove('show');
+    }
+  }
+});
+
+// Função para voltar ao topo
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// Header com efeito de scroll
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.topo');
+  if (header) {
+    if (window.pageYOffset > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+});
+
+// Traduções para os dias santos
 const traducoes = {
   'Easter Sunday': 'Domingo de Páscoa',
   'Palm Sunday': 'Domingo de Ramos',
@@ -71,22 +106,22 @@ const diasSantos = {
   '2028-06-13': 'Santo Antônio',
   '2028-06-24': 'Natividade de São João Batista',
   '2028-12-25': 'Natal',
-  '2024-07-26': 'Santo Joaquim e Santa Ana', // Data de Santo Joaquim e Santa Ana
+  '2024-07-26': 'Santo Joaquim e Santa Ana',
   '2025-07-26': 'Santo Joaquim e Santa Ana',
   '2026-07-26': 'Santo Joaquim e Santa Ana',
   '2027-07-26': 'Santo Joaquim e Santa Ana',
   '2028-07-26': 'Santo Joaquim e Santa Ana',
-  '2024-10-04': 'São Francisco de Assis', // Data de São Francisco de Assis
+  '2024-10-04': 'São Francisco de Assis',
   '2025-10-04': 'São Francisco de Assis',
   '2026-10-04': 'São Francisco de Assis',
   '2027-10-04': 'São Francisco de Assis',
   '2028-10-04': 'São Francisco de Assis',
-  '2024-11-01': 'Todos os Santos', // Dia de Todos os Santos
+  '2024-11-01': 'Todos os Santos',
   '2025-11-01': 'Todos os Santos',
   '2026-11-01': 'Todos os Santos',
   '2027-11-01': 'Todos os Santos',
   '2028-11-01': 'Todos os Santos',
-  '2024-08-15': 'Assunção de Maria', // Dia da Assunção de Maria
+  '2024-08-15': 'Assunção de Maria',
   '2025-08-15': 'Assunção de Maria',
   '2026-08-15': 'Assunção de Maria',
   '2027-08-15': 'Assunção de Maria',
@@ -99,6 +134,9 @@ let anoAtual = new Date().getFullYear()
 function gerarCalendario(mes, ano) {
   const calendarioDiv = document.getElementById('calendar')
   const mesAnoDiv = document.getElementById('monthYear')
+  
+  if (!calendarioDiv || !mesAnoDiv) return;
+  
   calendarioDiv.innerHTML = ''
 
   const primeiroDia = new Date(ano, mes, 1)
@@ -138,13 +176,12 @@ function gerarCalendario(mes, ano) {
         nomeFeriado = traducoes[nomeFeriado]
       }
 
-      diaDiv.classList.add('day', 'holiday')
+      diaDiv.classList.add('holiday')
       diaDiv.innerHTML = `
           <span class="day-number">${i}</span>
           <small>${nomeFeriado}</small>
         `
     } else {
-      diaDiv.classList.add('day')
       diaDiv.innerHTML = `<span class="day-number">${i}</span>`
     }
 
@@ -170,24 +207,61 @@ function getNomeMes(mes) {
   return meses[mes]
 }
 
-document.getElementById('prevMonth').addEventListener('click', () => {
-  if (mesAtual === 0) {
-    mesAtual = 11
-    anoAtual -= 1
-  } else {
-    mesAtual -= 1
+// Event listeners para os botões do calendário
+document.addEventListener('DOMContentLoaded', function() {
+  const prevButton = document.getElementById('prevMonth');
+  const nextButton = document.getElementById('nextMonth');
+  
+  if (prevButton) {
+    prevButton.addEventListener('click', () => {
+      if (mesAtual === 0) {
+        mesAtual = 11
+        anoAtual -= 1
+      } else {
+        mesAtual -= 1
+      }
+      gerarCalendario(mesAtual, anoAtual)
+    });
   }
-  gerarCalendario(mesAtual, anoAtual)
-})
-
-document.getElementById('nextMonth').addEventListener('click', () => {
-  if (mesAtual === 11) {
-    mesAtual = 0
-    anoAtual += 1
-  } else {
-    mesAtual += 1
+  
+  if (nextButton) {
+    nextButton.addEventListener('click', () => {
+      if (mesAtual === 11) {
+        mesAtual = 0
+        anoAtual += 1
+      } else {
+        mesAtual += 1
+      }
+      gerarCalendario(mesAtual, anoAtual)
+    });
   }
-  gerarCalendario(mesAtual, anoAtual)
-})
+  
+  // Gerar calendário inicial
+  gerarCalendario(mesAtual, anoAtual);
+});
 
-gerarCalendario(mesAtual, anoAtual)
+// Animação de fade-in para elementos ao rolar a página
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+// Observar elementos com animação
+document.addEventListener('DOMContentLoaded', function() {
+  const animatedElements = document.querySelectorAll('.cta, .info-text, .agenda-card, .contato-info-card');
+  animatedElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(el);
+  });
+});
